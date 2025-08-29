@@ -1,0 +1,29 @@
+<div class="eth-page">
+  <button (click)="connectWallet()">Connect Wallet</button>
+
+  <div *ngIf="account$ | async as account">
+    <p>Account: {{ account }}</p>
+  </div>
+
+  <div *ngIf="chainId$ | async as chainId">
+    <p>Chain ID: {{ chainId }}</p>
+  </div>
+
+  <div *ngIf="balance$ | async as balance">
+    <p>Balance: {{ balance }} ETH</p>
+  </div>
+
+  <hr>
+
+  <h3>Switch Network</h3>
+  <button (click)="switchNetwork(1)">Ethereum Mainnet</button>
+  <button (click)="switchNetwork(5)">Goerli Testnet</button>
+  <button (click)="switchNetwork(137)">Polygon</button>
+
+  <hr>
+
+  <h3>Send Transaction</h3>
+  <input type="text" [(ngModel)]="sendTo" placeholder="Recipient address" />
+  <input type="text" [(ngModel)]="sendAmount" placeholder="Amount in ETH" />
+  <button (click)="sendTransaction()">Send</button>
+</div>

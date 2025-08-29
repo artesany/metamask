@@ -1,0 +1,20 @@
+<div *ngIf="isOpen" class="modal-overlay">
+  <div class="modal-content">
+    <h3>Select Network</h3>
+
+    <ul>
+      <li *ngFor="let chain of chains">
+        <button
+          [disabled]="selectedChainId === chain.chainId"
+          (click)="switchChain(chain.chainId)">
+          {{ chain.name }}
+          <span *ngIf="selectedChainId === chain.chainId"> (Current)</span>
+        </button>
+      </li>
+    </ul>
+
+    <button (click)="close()">Close</button>
+  </div>
+</div>
+
+

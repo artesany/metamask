@@ -3,12 +3,17 @@
 export interface ChainInfo {
   chainId: number;
   name: string;
+<<<<<<< HEAD
   rpcUrls: string[];
+=======
+  rpcUrl: string;
+>>>>>>> c7ea678 (initial commit:metamask)
   nativeCurrency: {
     name: string;
     symbol: string;
     decimals: number;
   };
+<<<<<<< HEAD
   blockExplorerUrls: string[];
 }
 
@@ -131,3 +136,32 @@ export const CHAINS: ChainInfo[] = [
 export function getChainById(chainId: number): ChainInfo | undefined {
   return CHAINS.find(chain => chain.chainId === chainId);
 }
+=======
+}
+
+export const CHAINS: ChainInfo[] = [
+  {
+    chainId: 1,
+    name: 'Ethereum Mainnet',
+    rpcUrl: 'https://mainnet.infura.io/v3/YOUR_INFURA_KEY',
+    nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 }
+  },
+  {
+    chainId: 5,
+    name: 'Goerli Testnet',
+    rpcUrl: 'https://goerli.infura.io/v3/YOUR_INFURA_KEY',
+    nativeCurrency: { name: 'Goerli Ether', symbol: 'gETH', decimals: 18 }
+  },
+  {
+    chainId: 137,
+    name: 'Polygon Mainnet',
+    rpcUrl: 'https://polygon-rpc.com',
+    nativeCurrency: { name: 'Matic', symbol: 'MATIC', decimals: 18 }
+  }
+];
+
+export function getChainById(chainId: number): ChainInfo | undefined {
+  return CHAINS.find(c => c.chainId === chainId);
+}
+
+>>>>>>> c7ea678 (initial commit:metamask)
